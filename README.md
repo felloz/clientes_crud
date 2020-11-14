@@ -22,7 +22,7 @@ npm install
 
 ### Setup
 
-**_NOTE_** The next step its only to generate the database and table through Script. The database can be generated with the script or just you can look for it in the `helpers` folder
+**_NOTE_** The next step wasn't tested  so if you have some troubles just skip  it and find a database copy in the Database folder.
 
 1. First Config the DB Connection in the file helpers\create_database.php:
 
@@ -41,14 +41,7 @@ $database->createDb();
 $database->createTable();
 
 ```
-2. Execute the Script from `helpers/create_database.php/:
-
-```
-$ php created_database.php
-```
-**_NOTE_** After generate de Database and tables you can config the file to connect the Crud to the Database.
-
-1. Config the crud database connection in `Database/Connect.php`
+2. Set up the connection for the system in `Database/Connection.php`, this file is the main connection for the whole Crud.
 
 ```php
 class Connect
@@ -68,9 +61,19 @@ class Connect
         }
     }
 }
+
 ```
+3. Execute the Script from `helpers/create_database.php/:
+
+```
+$ php created_database.php
+```
+
 
 ## Now you can use the Crud :-)
 
 
 ![crud_preview](https://i.imgur.com/8Xm5pOD.png)
+
+
+Live Demo: http://honeymails:8000/
