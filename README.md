@@ -3,10 +3,17 @@ CLIENTES CRUD PHP VUEJS
 
 ## Installation
 
+1. Clone App
+```
+$ git clone https://github.com/felloz/clientes_crud
+```
+
+2. Install php dependencias
 ```
 composer install
 ```
 
+3. Install node modules
 ```
 npm install 
 ```
