@@ -43,7 +43,7 @@ class Connect
     public function __construct()
     {
         try {
-            $this->pdo = new PDO('mysql:host=127.0.0.1;dbname=prueba_actual2', 'root', '');
+            $this->pdo = new PDO('mysql:host=127.0.0.1;dbname=crud_clientes', 'root', '');
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             die($e->getMessage());
