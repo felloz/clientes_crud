@@ -1,0 +1,19 @@
+{
+  "name": "clientes_crud",
+  "version": "1.0.0",
+  "description": "crud de clientes",
+  "main": "index.php",
+  "scripts": {
+    "test": "t"
+  },
+  "author": "Luis Serrano <lserranoit@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.19.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "vue": "^2.6.12"
+  }
+}

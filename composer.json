@@ -1,0 +1,22 @@
+{
+    "name": "lserrano/clientes_crud",
+    "description": "Crud Empleados",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luis Serrano",
+            "email": "serranol82@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": ["Database/Connect.php", "helpers/functions.php"],
+        "classmap": ["Model"],
+        "psr-4": {
+            "App\\": "app/"
+        }
+        
+    }
+}

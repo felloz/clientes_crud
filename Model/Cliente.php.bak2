@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Entidades para la tabla Clientes
+ *
+ * PHP version 7.4.9
+ *
+ * @category  Modelo
+ * @package   Modelo
+ * @author    Luis Serrano <serranol82@gmail.com>
+ * @copyright 2020 Luis Serrano
+ * @license   MIT https://opensource.org/licenses/MIT
+ * @version   SVN: $Id$
+ * @link      https://laravel.com/docs/7.x/controllers
+ */
+
+
+namespace Model;
+
+/**
+ * Entidades para la tabla Clientes
+ *
+ * PHP version 7.4.9
+ *
+ * @category  Class
+ * @package   Modelo
+ * @author    Luis Serrano <serranol82@gmail.com>
+ * @copyright 2020 Luis Serrano
+ * @license   MIT https://opensource.org/licenses/MIT
+ * @version   SVN: $Id$
+ * @link      https://laravel.com/docs/7.x/controllers
+ */
+class Cliente extends Model
+{
+    private $_id;
+    private $_nombre;
+    private $_apellido;
+    private $_telefono;
+    private $_direccion;
+    private $_ciudad;
+    private $_pais;
+    private $_created_at;
+    private $_updated_at;
+
+    public function __GET($prop)
+    {
+        return $this->$prop;
+    }
+
+    public function __SET($prop, $valor)
+    {
+        return $this->$prop = $valor;
+    }
+}
