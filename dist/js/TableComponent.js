@@ -300,7 +300,6 @@ Vue.component("table-component", {
      */
     drop(id, nombre = null, apellido = null) {
       event.preventDefault();
-      console.log("eliminando id: " + id);
       if (
         confirm(
           `¿Estas Seguro de querer elimnar a ID:(${id}) ${nombre} ${apellido}?`
@@ -331,7 +330,6 @@ Vue.component("table-component", {
             }
           );
       }
-      console.log("llega aqui");
     },
 
     /**

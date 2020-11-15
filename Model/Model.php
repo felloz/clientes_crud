@@ -157,7 +157,7 @@ class Model extends Connect
      *
      * @param [int] $id se requiere el id del cliente
      * 
-     * @return void
+     * @return boolean
      */
     public function drop(int $id)
     {
