@@ -8,10 +8,10 @@ Vue.component("table-component", {
     <div>
     <div class="row justify-content-center">
       <form id="navbar-search-main" class="navbar-search form-inline mr-sm-3 navbar-search-dark">
-        <fieldset class="form-group mb-0" id="__BVID__63"><!---->
+        <fieldset class="form-group mb-0"><!---->
           <div tabindex="-1" role="group" class="bv-no-focus-ring">
             <div role="group" class="input-group input-group-alternative input-group-merge"><!---->
-                <input type="text" placeholder="Search" class="form-control" v-model="searchText" v-on:keyup="search">
+                <input type="text" placeholder="Buscar" class="form-control" v-model="searchText" v-on:keyup="search">
                 <div class="input-group-append">
                   <span class="input-group-text">
                     <i class="fas fa-search"></i>
