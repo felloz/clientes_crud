@@ -6,7 +6,23 @@ Vue.component("table-component", {
     /*html*/
     `
     <div>
-      <div style="color: red;"><strong>{{error}}</strong></div>
+    <div class="row justify-content-center">
+      <form id="navbar-search-main" class="navbar-search form-inline mr-sm-3 navbar-search-dark">
+        <fieldset class="form-group mb-0" id="__BVID__63"><!---->
+          <div tabindex="-1" role="group" class="bv-no-focus-ring">
+            <div role="group" class="input-group input-group-alternative input-group-merge"><!---->
+                <input type="text" placeholder="Search" class="form-control" v-model="searchText" v-on:keyup="search">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </div><!---->
+            </div><!----><!----><!---->
+          </div>
+        </fieldset>
+      </form>
+    </div>
+      <div class="mt-4" style="color: red;"><strong>{{error}}</strong></div>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -33,7 +49,7 @@ Vue.component("table-component", {
                     <td><button @click="crear" class="form-control btn btn-success" :disabled="isEditing">Agregar</button></td>
                 </tr>         
                     <tr v-for="(cliente, key) in clientes">
-                      <th scope="row">{{cliente.id}}</th>
+                      <th scope="row">{{clientes.id}}</th>
                         <td :id="cliente.id" v-if="!isEditing || cliente.id != currentId">{{cliente.nombre}}</td>
                         <td v-if="isEditing && cliente.id === currentId"><input type="text" class="form-control" v-model="nombreEdit" :placeholder="cliente.nombre"></td>
                         <td :id="cliente.id" v-if="!isEditing || cliente.id != currentId">{{cliente.apellido}}</td>
@@ -91,21 +107,24 @@ Vue.component("table-component", {
       direccionEdit: "",
       ciudadEdit: "",
       paisEdit: "",
+      //Helpers
       URL: "/backend.php",
+      //search
+      searchText:"",
     };
   },
   methods: {
     /**
-     * 
+     *
      * Metodo para realizar la peticion PUT y actualizar los datos del cliente
-     * 
-     * @param {int} id 
-     * @param {string} nombre 
-     * @param {string} apellido 
-     * @param {string} telefono 
-     * @param {string} direccion 
-     * @param {string} ciudad 
-     * @param {string} pais 
+     *
+     * @param {int} id
+     * @param {string} nombre
+     * @param {string} apellido
+     * @param {string} telefono
+     * @param {string} direccion
+     * @param {string} ciudad
+     * @param {string} pais
      */
     store(id, nombre, apellido, telefono, direccion, ciudad, pais) {
       event.preventDefault();
@@ -155,9 +174,9 @@ Vue.component("table-component", {
     },
     /**
      * Ayuda  a controlar la activación y desactivación de los botones
-     * 
-     * @param {int} id 
-     * @param {boolean} action 
+     *
+     * @param {int} id
+     * @param {boolean} action
      */
     editReact(id, action = true) {
       this.isEditing = action;
@@ -191,8 +210,8 @@ Vue.component("table-component", {
     },
     /**
      * Metodo para registrar un nuevo usuario
-     * 
-     * @param {event} evt 
+     *
+     * @param {event} evt
      */
     crear(evt) {
       evt.preventDefault();
@@ -235,6 +254,7 @@ Vue.component("table-component", {
       axios.get(this.URL + "?request=todos").then(
         (response) => {
           this.clientes = response.data;
+          console.log(response.data);
         },
         (error) => {
           console.log(error);
@@ -293,10 +313,10 @@ Vue.component("table-component", {
     },
     /**
      * Metodo para eliminar registro, la eliminacion no sera soft delete
-     * 
-     * @param {int} id 
-     * @param {string} nombre 
-     * @param {string} apellido 
+     *
+     * @param {int} id
+     * @param {string} nombre
+     * @param {string} apellido
      */
     drop(id, nombre = null, apellido = null) {
       event.preventDefault();
@@ -334,9 +354,9 @@ Vue.component("table-component", {
 
     /**
      * Metodo para asegurarse que siempre llegue un valor al backend durante el update
-     * 
-     * @param {mix} model 
-     * @param {mix} val 
+     *
+     * @param {mix} model
+     * @param {mix} val
      */
     realValue(model, val) {
       if (model == "") {
@@ -344,6 +364,20 @@ Vue.component("table-component", {
       }
       return model;
     },
+    search(){
+      axios.post(this.URL, {
+        value:this.searchText,
+        action: 'search'
+      }).then(
+        (response) => {
+          this.clientes = response.data;
+          console.log(response.data)
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   },
   mounted() {
     this.consulta();

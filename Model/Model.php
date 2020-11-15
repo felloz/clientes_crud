@@ -153,6 +153,30 @@ class Model extends Connect
     }
 
     /**
+     * Undocumented function
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function searchClient($value)
+    {
+        try {
+            $stmt = $this->pdo->prepare(
+                "SELECT * FROM clientes WHERE nombre LIKE '%$value%'
+                OR apellido LIKE '%$value%' OR telefono LIKE '%$value%' ORDER  BY id DESC"
+            );
+
+            $stmt->execute();
+
+            $results = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            return $results;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+    }
+
+    /**
      * Metodo para eliminar al cliente
      *
      * @param [int] $id se requiere el id del cliente
