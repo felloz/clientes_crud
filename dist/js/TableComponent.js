@@ -141,7 +141,7 @@ Vue.component("table-component", {
         })
         .then(
           (response) => {
-            console.log(response.data);
+            //console.log(response.data);
             let datas = response.data;
             if (response.data.code != null && response.data.code == 200) {
               this.message = response.data.message;
@@ -228,7 +228,7 @@ Vue.component("table-component", {
           })
           .then(
             (response) => {
-              console.log(response.data);
+              //console.log(response.data);
               this.message = response.data.message;
               this.isSuccess = true;
               this.updated = true;
@@ -254,10 +254,10 @@ Vue.component("table-component", {
       axios.get(this.URL + "?request=todos").then(
         (response) => {
           this.clientes = response.data;
-          console.log(response.data);
+          //console.log(response.data);
         },
         (error) => {
-          console.log(error);
+         // console.log(error);
         }
       );
     },
@@ -333,7 +333,7 @@ Vue.component("table-component", {
           })
           .then(
             (response) => {
-              console.log(response.data);
+            //  console.log(response.data);
               this.toast(
                 "b-toaster-top-right",
                 true,
@@ -346,7 +346,7 @@ Vue.component("table-component", {
               }
             },
             (error) => {
-              console.log(error);
+             // console.log(error);
             }
           );
       }
@@ -371,10 +371,10 @@ Vue.component("table-component", {
       }).then(
         (response) => {
           this.clientes = response.data;
-          console.log(response.data)
+          //console.log(response.data)
         },
         (error) => {
-          console.log(error);
+          //console.log(error);
         }
       );
     }
