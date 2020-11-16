@@ -49,7 +49,7 @@ Vue.component("table-component", {
                     <td><button @click="crear" class="form-control btn btn-success" :disabled="isEditing">Agregar</button></td>
                 </tr>         
                     <tr v-for="(cliente, key) in clientes">
-                      <th scope="row">{{clientes.id}}</th>
+                      <th scope="row">{{cliente.id}}</th>
                         <td :id="cliente.id" v-if="!isEditing || cliente.id != currentId">{{cliente.nombre}}</td>
                         <td v-if="isEditing && cliente.id === currentId"><input type="text" class="form-control" v-model="nombreEdit" :placeholder="cliente.nombre"></td>
                         <td :id="cliente.id" v-if="!isEditing || cliente.id != currentId">{{cliente.apellido}}</td>
