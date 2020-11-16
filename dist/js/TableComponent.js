@@ -108,7 +108,7 @@ Vue.component("table-component", {
       ciudadEdit: "",
       paisEdit: "",
       //Helpers
-      URL: "/backend.php",
+      URL: "http://honeymails.com:8000/backend.php",
       //search
       searchText:"",
     };
